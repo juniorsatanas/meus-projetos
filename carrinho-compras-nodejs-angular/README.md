@@ -1,4 +1,4 @@
-# Desenvolvimento carrinho de compras com Node.js, AngularJS and MongoDB
+# Desenvolvimento carrinho de compras com Node.js, AngularJS e MongoDB
 
 O aplicativo utiliza as seguintes bibliotecas e frameworks:
 
