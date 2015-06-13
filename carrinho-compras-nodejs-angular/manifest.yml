@@ -1,14 +1,14 @@
 ---
 applications:
-- name: polls
+- name: carrinhoapp
   mem: 256M
   instances: 1
-  host: polls-${random-word}
+  host: carrinhoapp-${random-word}
   domain: mybluemix.net
   path: .
   command: node app.js
   services:
-     mongodb-polls: #Identifier for Mongodb Bound Service instance
+     mongodb-carrinhoapp: #Identifier for Mongodb Bound Service instance
       label: mongodb
       provider: core
       version: '2.2'

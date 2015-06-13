@@ -1,41 +1,82 @@
-/*jshint node:true*/
-var express = require('express');
-var routes = require('./routes');
-var http = require('http');
-var path = require('path');
+var express = require("express")
+  , http = require("http")
+  , path = require("path")
+  , CarrinhoProvider = require("./server/provider/carrinho").CarrinhoProvider;
 
 var app = express();
-var server = http.createServer(app);
-var io = require('socket.io').listen(server);
-
-app.set('port', process.env.VCAP_APP_PORT || 3000);
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'jade');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.methodOverride());
-app.use(app.router);
-app.use(express.static(path.join(__dirname, 'public')));
-
-// Handle Errors gracefully
-app.use(function(err, req, res, next) {
-	if(!err) return next();
-	console.log(err.stack);
-	res.json({error: true});
+app.configure(function(){
+	app.set("port", process.env.PORT || 3000);
+	app.set("views", __dirname + "/views");
+	app.set("view engine", "jade");
+	app.set("view options", {layout: false});
+	app.use(express.favicon());
+	app.use(express.logger("dev"));
+	app.use(express.bodyParser());
+	app.use(express.methodOverride());
+	app.use(app.router);
+	app.use(express.static(path.join(__dirname, "public")));
 });
 
-// Main App Page
-app.get('/', routes.index);
+var carrinhoProvider = new CarrinhoProvider("localhost");
 
-// MongoDB API Routes
-app.get('/polls/polls', routes.list);
-app.get('/polls/:id', routes.poll);
-app.post('/polls', routes.create);
-app.post('/vote', routes.vote);
+//Routes
+app.get("/", function(req, res){
+	res.render("index");
+});
 
-io.sockets.on('connection', routes.vote);
+app.get("/cart/list", function (request, response) {
+	carrinhoProvider.findAll(function(carrinho){
+		response.json(carrinho);
+	});
+});
 
-server.listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
+app.get("/cart/:id", function (request, response) {
+    try {
+    	carrinhoProvider.find(request.params.id, function(carrinho){
+        	response.json(carrinho);
+        });
+    } catch (exeception) {
+    	console.log("Erro ao consultar item: " + exeception);
+        response.send(404);
+    }
+});
+
+app.post("/cart", function (request, response) {
+    var carrinho = request.body;
+    var doc = carrinhoProvider.saveOrUpdate({
+    	cliente : carrinho.cliente,
+		item : carrinho.item,
+		_id : carrinho._id
+    }, function(doc){
+    	response.json(doc);
+    });
+});
+
+app.put("/cart/:id", function (request, response) {
+    try {
+    	var carrinho = request.body;
+	    var doc = carrinhoProvider.save({
+	    	cliente : carrinho.cliente,
+			item : carrinho.item,
+			_id : carrinho._id
+	    });
+	    response.json(doc);
+    } catch (exception) {
+        response.send(404);
+    }
+});
+
+app.delete("/cart/:id", function (request, response) {
+    try {
+        carrinhoProvider.remove(request.params.id);
+        response.send(200);
+    } catch (exeception) {
+    	console.log("Erro ao excluir item: " + exeception); 
+        response.send(404);
+    }
+});
+
+var server = http.createServer(app);
+server.listen(app.get("port"), function() {
+	console.log("Express server listening on port " + app.get("port"));
 });
