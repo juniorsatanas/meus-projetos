@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Google Maps API v3: Busca de endereço e Autocomplete - Demo</title>
+        <link rel="stylesheet" type="text/css" href="assets/css/custom.css">
+		
+	   </head>
+	<body ng-app="GoogleMapsCustom">
+	
+		<h1>Google Maps Multiple Marker Demo 123</h1>
+		
+        
+		<div ng-controller="GoogleMapsCustomController" ng-init="setMarkers();">
+			<ui-gmap-google-map center="map.center" zoom="map.zoom"> <ui-gmap-markers models="map.randomMarkers" coords="'self'" icon="'icon'" click="onMarkerClicked" doCluster="map.doClusterRandomMarkers"
+				clusterOptions="map.clusterOptions" modelsbyref="true"> 
+				<ui-gmap-windows show="'showWindow'" closeClick="'closeClick'" ng-cloak>
+					<div>
+						<p ng-non-bindable>{{title}} - endereço: {{adress}} visita: {{date}}<button type='button'>Incluir na Agenda</button></p>
+					</div>
+					</ui-gmap-windows> 
+				</ui-gmap-markers> 
+			</ui-gmap-google-map>
+		</div>
+	</body>
+</html>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/lodash/dist/lodash.js"></script>
+<script src="bower_components/angular-google-maps/dist/angular-google-maps.js"></script>
+<script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script src="app.js"></script>
+<script src="controller.js"></script>
