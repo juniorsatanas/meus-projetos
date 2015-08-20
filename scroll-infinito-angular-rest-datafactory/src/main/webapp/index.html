@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+		<title>Infinite Scrolling for AngularJS</title>
+		<link href="bower_components/bootstrap-css-only/css/bootstrap.css" media="screen" rel="stylesheet" type="text/css" />
+		<link href="bower_components/bootstrap-css-only/css/bootstrap-theme.css" media="screen" rel="stylesheet" type="text/css" />
+	
+		<script src="bower_components/angular/angular.js" type="text/javascript"></script>
+		<script src="bower_components/angular-resource/angular-resource.js" type="text/javascript"></script>
+		<script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js" type="text/javascript"></script>
+		<script src="assets/js/app.js" type="text/javascript"></script>
+		<script src="assets/js/service.js" type="text/javascript"></script>
+		<script src="assets/js/controller.js" type="text/javascript"></script>
+	</head>
+	<body ng-app="AppPeople">
+		<div ng-controller="PeopleController" ng-init="buscar();">
+			<h3>Scroll! Scroll like the wind!</h3>
+			<div infinite-scroll="search();" infinite-scroll-distance="2">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th>Nome</th>
+							<th>Endereço</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in data">
+							<td>{{item.people.name}}</td>
+							<td>{{item.people.adress}}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</body>
+</html>

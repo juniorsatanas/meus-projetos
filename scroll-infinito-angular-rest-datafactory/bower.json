@@ -1,0 +1,16 @@
+{
+    "name": "scroll-infinito-angular-rest-datafactory",
+    "version": "0.0.1",
+    "authors": [
+        "emir.liz <emirdeliz@gmail.com>"
+    ],
+    "description": "Scroll Infinito Angular Rest Datafactory",
+    "license": "MIT",
+    "homepage": "https://github.com/emirdeliz/meus-projetos",
+    "dependencies": {
+        "angular": "~1.4.4",
+        "ngInfiniteScroll": "~1.2.1",
+        "bootstrap-css-only": "3.3.4"
+    }
+    "directory" : "src/main/webapp/bower_components"
+}
