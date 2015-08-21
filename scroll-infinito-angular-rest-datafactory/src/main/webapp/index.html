@@ -7,32 +7,39 @@
 		<title>Infinite Scrolling for AngularJS</title>
 		<link href="bower_components/bootstrap-css-only/css/bootstrap.css" media="screen" rel="stylesheet" type="text/css" />
 		<link href="bower_components/bootstrap-css-only/css/bootstrap-theme.css" media="screen" rel="stylesheet" type="text/css" />
-	
+		<link href="bower_components/angular-busy/dist/angular-busy.css" media="screen" rel="stylesheet" type="text/css" />
+		<link href="assets/css/custom.css" media="screen" rel="stylesheet" type="text/css" />
+		
 		<script src="bower_components/angular/angular.js" type="text/javascript"></script>
 		<script src="bower_components/angular-resource/angular-resource.js" type="text/javascript"></script>
 		<script src="bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js" type="text/javascript"></script>
+		<script src="bower_components/angular-busy/dist/angular-busy.js" type="text/javascript"></script>
+		<script src="bower_components/angular-animate/angular-animate.js" type="text/javascript"></script>
 		<script src="assets/js/app.js" type="text/javascript"></script>
 		<script src="assets/js/service.js" type="text/javascript"></script>
 		<script src="assets/js/controller.js" type="text/javascript"></script>
 	</head>
 	<body ng-app="AppPeople">
-		<div ng-controller="PeopleController" ng-init="buscar();">
+		<div ng-controller="PeopleController">
 			<h3>Scroll! Scroll like the wind!</h3>
-			<div infinite-scroll="search();" infinite-scroll-distance="2">
-				<table class="table table-striped">
-					<thead>
-						<tr>
-							<th>Nome</th>
-							<th>Endereço</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr ng-repeat="item in data">
-							<td>{{item.people.name}}</td>
-							<td>{{item.people.adress}}</td>
-						</tr>
-					</tbody>
-				</table>
+			<div cg-busy="{promise:promise, message:'Aguarde', backdrop:true, delay:100, minDuration:700}">
+				<div class="scroll">
+					<table class="table table-striped" infinite-scroll="search();" infinite-scroll-distance="1" infinite-scroll-parent="true" infinite-scroll-disabled="busy">
+						<thead>
+							<tr>
+								<th>Nome</th>
+								<th>Endereço</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="item in data">
+								<td>{{item.people.name}}</td>
+								<td>{{item.people.adress}}</td>
+							</tr>
+						</tbody>
+					</table>
+					<div style='clear: both;'></div>
+				</div>
 			</div>
 		</div>
 	</body>

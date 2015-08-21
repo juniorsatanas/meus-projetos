@@ -1,12 +1,15 @@
 AppPeople.controller("PeopleController", function($scope, $people) {
 	$scope.data = [];
 	$scope.page = {ini : 0, end : 50, increment: 30};
+	$scope.busy = false;
 	
 	$scope.search = function() {
-		$people.query({ini:$scope.page.ini, end: $scope.page.end}, function(response) { 
+		$scope.busy = true;
+		$scope.promise = $people.query({ini:$scope.page.ini, end: $scope.page.end}, function(response) { 
 			$scope.loadPeople(response);
 			$scope.incrementPageNumber();
-		});
+			$scope.busy = false;
+		}).$promise;
 	};
 	
 	$scope.incrementPageNumber = function(){

@@ -16,7 +16,6 @@
     "fonts/glyphicons-halflings-regular.woff2"
   ],
   "homepage": "http://getbootstrap.com/",
-  "license": "MIT",
   "author": {
     "name": "Twitter Inc."
   },
@@ -24,15 +23,14 @@
     "type": "git",
     "url": "git://github.com/fyockm/bootstrap-css-only.git"
   },
-  "version": "3.3.5",
-  "_release": "3.3.5",
+  "version": "3.3.4",
+  "_release": "3.3.4",
   "_resolution": {
     "type": "version",
-    "tag": "3.3.5",
-    "commit": "21cec91fda8021f4ee6112934634d9b24b8fc778"
+    "tag": "3.3.4",
+    "commit": "864be89965524149864ddce14f42cdd559093707"
   },
   "_source": "git://github.com/fyockm/bootstrap-css-only.git",
-  "_target": "~3.3.5",
-  "_originalSource": "bootstrap-css-only",
-  "_direct": true
+  "_target": "3.3.4",
+  "_originalSource": "bootstrap-css-only"
 }

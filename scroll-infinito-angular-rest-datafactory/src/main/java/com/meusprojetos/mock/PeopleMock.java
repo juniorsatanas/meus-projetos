@@ -31,6 +31,14 @@ public class PeopleMock
 	
 	public List<People> search(Integer indexIni, Integer indexEnd)
 	{
+		try
+		{
+			Thread.sleep(500);
+		}
+		catch (InterruptedException e)
+		{
+			e.printStackTrace();
+		}
 		return PeopleMock.peopleMock.subList(indexIni, indexEnd + 1);
 	}
 }
