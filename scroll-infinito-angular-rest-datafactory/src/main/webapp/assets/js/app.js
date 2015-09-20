@@ -1,1 +1,1 @@
-var AppPeople = angular.module("AppPeople", ["ngResource", "infinite-scroll", "ngAnimate", "cgBusy"]);
+var AppPeople = angular.module("AppPeople", ["ngResource", "infinite-scroll", "cgBusy"]);

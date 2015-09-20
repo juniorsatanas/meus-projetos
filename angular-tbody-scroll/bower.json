@@ -1,0 +1,16 @@
+{
+	"name": "angular-tbody-scroll",
+	"description": "Angular tbody scroll",
+	"keywords": [
+	    "scroll",
+		"layout"
+	 ],
+	 "homepage": "https://github.com/emirdeliz/meus-projetos",
+	 "author": {
+		 "emir.liz <emirdeliz@gmail.com>"
+	 },
+	 "repository": {
+		 "type": "git",
+		 "url": "git://github.com/fyockm/bootstrap-css-only.git"
+	 }
+}
