@@ -1,0 +1,13 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd">
+	<bean id="properties" class="br.com.meuspedidos.model.MailTemplate">
+		<property name="message1" value="Obrigado por se candidatar, assim que tivermos uma vaga disponível para programador Front-End entraremos em contato."/>
+		<property name="message2" value="Obrigado por se candidatar, assim que tivermos uma vaga disponível para programador Back-end entraremos em contato."/>
+		<property name="message3" value="Obrigado por se candidatar, assim que tivermos uma vaga disponível para programador mobile entraremos em contato."/>
+		<property name="message4" value="Obrigado por se candidatar, assim que tivermos uma vaga disponível entraremos em contato."/>
+		<property name="subject"  value="Obrigado por se candidatar"/>
+		<property name="from"     value="no.replay.teste.mp@gmail.com"/>
+	</bean>
+</beans>
