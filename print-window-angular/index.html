@@ -1,0 +1,60 @@
+<html lang="en" ng-app="PrintApp">
+    <head>
+        <meta name="viewport" content="initial-scale=1" />
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="bower_components/bootstrap-css-only/css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="bower_components/bootstrap-css-only/css/bootstrap.min.css">
+
+        <script src="bower_components/faker/build/build/faker.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <script src="bower_components/js-data/dist/js-data.min.js"></script>
+        <script src="bower_components/js-data-angular/dist/js-data-angular.min.js"></script>
+
+        <script src="assets/js/app.js"></script>
+        <script src="assets/js/service.js"></script>
+        <script src="assets/js/controller.js"></script>
+        <script src="assets/js/config.js"></script>
+    </head>
+    <body ng-controller="PrintCtrl">
+        <h1>Data</h1>
+        <div>
+            <button data-ng-click="addUser('red')">Add Red User</button>
+            <button data-ng-click="addUser('blue')">Add Blue User</button>
+            <button data-ng-click="print();">Print</button>
+        </div>
+        <h4>Blue Users:</h4>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id:</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="user in blueUsers track by user.id">
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <h4>Red Users:</h4>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id:</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr data-ng-repeat="user in redUsers track by user.id">
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </body>
+</html>
