@@ -1,0 +1,32 @@
+<i class="fa fa-calendar" (click)="open();"></i>
+<div class="calendar-container transition" *ng-if="isOpen">
+    <div class="view-year">
+        <div class="title transition title-header">
+            <span (click)="prevYear();">-</span>
+            <span>{{yearCalendar}}</span>
+            <span (click)="nextYear();">+</span>
+        </div>
+        <div class="grid">
+            <div month="0" class="month-item transition"><span class="centred">JAN</span></div>
+            <div month="1" class="month-item transition"><span class="centred">FEV</span></div>
+            <div month="2" class="month-item transition"><span class="centred">MAR</span></div>
+            <div month="3" class="month-item transition"><span class="centred">ABR</span></div>
+            <div month="4" class="month-item transition"><span class="centred current">MAI</span></div>
+            <div month="5" class="month-item transition"><span class="centred">JUN</span></div>
+            <div month="6" class="month-item transition"><span class="centred">JUL</span></div>
+            <div month="7" class="month-item transition"><span class="centred">AGO</span></div>
+            <div month="8" class="month-item transition"><span class="centred">SET</span></div>
+            <div month="9" class="month-item transition"><span class="centred">OUT</span></div>
+            <div month="10" class="month-item transition"><span class="centred">NOV</span></div>
+            <div month="11" class="month-item transition"><span class="centred">DEZ</span></div>
+        </div>
+    </div>
+    <div id="gen-month" class="view-month">
+        <div class="title transition active">
+            <div class="go-back-month transition"><span></span></div>
+            <span class="month-name"></span>
+            <span class="date-year"></span>
+        </div>
+        <div class="grid grid-days"></div>
+    </div>
+</div>

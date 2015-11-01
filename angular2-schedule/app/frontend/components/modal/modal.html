@@ -1,0 +1,28 @@
+<div class="card-wide mdl-card mdl-shadow--2dp modal" *ng-if="isOpen">
+    <div class="mdl-card__title">
+        <h2 class="mdl-card__title-text">Novo compromisso</h2>
+    </div>
+    <div class="mdl-card__supporting-text">
+        <form action="#">
+            <div class="mdl-textfield mdl-js-textfield">
+                {{dtCompromisse | date:'dd/MM/yyyy'}}
+                <datepicker destination="dtCompromisse" (callback)="selectDatePicker($event);" class="datepicker"></datepicker>
+                <label class="mdl-textfield__label" for="dtCompromisse">{{dtCompromisse? '' : 'Data'}}</label>
+            </div><br>
+            <div class="mdl-textfield mdl-js-textfield">
+                <textarea class="mdl-textfield__input" type="text" rows= "5" [(ng-model)]="dsCompromise"></textarea>
+                <label class="mdl-textfield__label" for="dsCompromisse">Descrição</label>
+            </div>
+        </form>
+    </div>
+    <div class="mdl-card__actions mdl-card--border">
+        <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored" (click)="save();">
+            Salvar <i class="material-icons">save</i>
+        </button>
+    </div>
+    <div class="mdl-card__menu">
+        <button class="mdl-button mdl-js-button mdl-js-ripple-effect" (click)="close();">
+            <i class="material-icons">close</i>
+        </button>
+    </div>
+</div>

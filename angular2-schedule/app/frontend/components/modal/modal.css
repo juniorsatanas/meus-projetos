@@ -1,0 +1,7 @@
+.modal {
+    width: 50%;
+    top: 25%;
+    left: 25%;
+    position: fixed;
+    z-index: 1000;
+}

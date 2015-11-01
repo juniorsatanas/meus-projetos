@@ -1,0 +1,5 @@
+.layout-transparent .mdl-layout__header,
+.layout-transparent .mdl-layout__drawer-button {
+    background-color: #045FB4;
+    color: #FFF;
+}

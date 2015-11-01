@@ -1,0 +1,13 @@
+.full-width {
+    width:100%;
+}
+
+div.home {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+div.button-action {
+    float:right;
+    margin: 1%;
+}

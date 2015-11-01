@@ -1,0 +1,35 @@
+<div class="home">
+    <div class="button-action">
+        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab mdl-button--colored" (click)="modal.open();">
+            <i class="material-icons">add</i>
+        </button>
+        <button class="mdl-button mdl-js-button mdl-button--fab mdl-button--mini-fab" (click)="removeCommitment();">
+            <i class="material-icons">remove</i>
+        </button>
+    </div>
+    <table class="mdl-data-table mdl-shadow--2dp full-width">
+        <thead>
+            <tr>
+                <th>
+                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select" for="table-header">
+                        <input type="checkbox" id="table-header" class="mdl-checkbox__input" [(ng-model)]='selectAll'/>
+                    </label>
+                </th>
+                <th class="mdl-data-table__cell--non-numeric">Data</th>
+                <th>Observação</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ng-for="#item of items #i=index">
+                <td>
+                    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect mdl-data-table__select">
+                        <input type="checkbox" id="row[{{i}}]" class="mdl-checkbox__input" [(ng-model)]='item.remove'/>
+                    </label>
+                </td>
+                <td class="mdl-data-table__cell">{{item.date | date:'dd/MMM/yyyy'}}</td>
+                <td>{{item.observation}}</td>
+            </tr>
+        </tbody>
+    </table>
+    <modal #modal (callback)="addCommitment($event);"></modal>
+</div>
