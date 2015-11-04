@@ -1,8 +1,8 @@
 {
-  "name": "angular2-seed",
-  "version": "0.0.0",
-  "description": "Seed for Angular 2 apps",
-  "repository": "https://github.com/mgechev/angular2-seed",
+  "name": "angular2-schedule",
+  "version": "0.0.1",
+  "description": "Seed for Angular 2",
+  "repository": "https://github.com/emirdeliz/meus-projetos",
   "scripts": {
     "build.dev": "gulp build.dev",
     "build.dev.watch": "gulp build.dev.watch",
@@ -19,7 +19,7 @@
     "test": "gulp test",
     "tsd": "tsd"
   },
-  "author": "Minko Gechev <mgechev>",
+  "author": "Emir Marques <emirdeliz>",
   "license": "MIT",
   "devDependencies": {
     "async": "^1.4.2",
