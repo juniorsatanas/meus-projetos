@@ -1,0 +1,72 @@
+{
+  "name": "react-material-webpack-boilerplate",
+  "version": "0.0.0",
+  "description": "",
+  "main": "app/app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint . --ext .js,.jsx",
+    "dev-server": "webpack-dev-server --config webpack-dev-server.config.js --progress --colors --port 2992 --inline",
+    "hot-dev-server": "webpack-dev-server --config webpack-hot-dev-server.config.js --hot --progress --colors --port 2992 --inline",
+    "build": "webpack --config webpack-production.config.js --progress --profile --colors",
+    "start-dev": "node lib/server-development",
+    "start": "node lib/server-production"
+  },
+  "precommit": [
+    "lint"
+  ],
+  "keywords": [
+    "webpack",
+    "react",
+    "starter",
+    "boilerplate",
+    "hot"
+  ],
+  "author": "Mike Lerner",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^1.3.0",
+    "autoprefixer-loader": "^2.0.0",
+    "babel-core": "^5.1.9",
+    "babel-loader": "^5.3.1",
+    "body-parser": "^1.12.2",
+    "css-loader": "^0.15.1",
+    "express": "^4.12.3",
+    "extract-text-webpack-plugin": "^0.8.2",
+    "fbjs": "^0.4.0",
+    "file-loader": "^0.8.1",
+    "firebase": "^2.3.2",
+    "html-loader": "^0.3.0",
+    "less": "^2.5.0",
+    "less-loader": "^2.2.0",
+    "material-design-icons": "^2.0.0",
+    "material-ui": "^0.13.3",
+    "material-ui-sass": "^0.7.2",
+    "node-sass": "^3.2.0",
+    "null-loader": "^0.1.0",
+    "react": "^0.14.3",
+    "react-addons-linked-state-mixin": "^0.14.3",
+    "react-data-grid": "^0.13.22",
+    "react-datagrid": "^1.2.15",
+    "react-dom": "^0.14.3",
+    "react-fa": "^4.0.0",
+    "react-hot-loader": "^1.2.5",
+    "react-proxy-loader": "^0.3.4",
+    "react-router": "^0.13.2",
+    "react-tap-event-plugin": "^0.1.6",
+    "reactfire": "^0.5.1",
+    "sass-loader": "^1.0.2",
+    "style-loader": "0.12.3",
+    "superagent": "^1.2.0",
+    "url-loader": "^0.5.5",
+    "uuid": "^2.0.1",
+    "webpack": "^1.8.4",
+    "webpack-dev-server": "^1.8.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^3.0.1",
+    "eslint": "^0.24.0",
+    "eslint-plugin-react": "^2.1.0",
+    "pre-commit": "^1.0.6"
+  }
+}
