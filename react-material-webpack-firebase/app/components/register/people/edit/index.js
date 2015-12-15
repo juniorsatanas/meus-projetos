@@ -23,46 +23,95 @@ module.exports = React.createClass({displayName: "exports",
     setApplicationDetails: function(pageData, item) {
         this.transitionTo('/people/view');
     },
+    getInitialState: function() {
+        return {
+            code: '0',
+            name: '',
+            observation: '',
+            genere: 0,
+            active: true,
+            key : 0,
+            update: false
+        };
+    },
+    componentDidMount: function() {
+        //this.mock();
+        var peopleId = this.props.params.peopleId;
+        var isEdit = (peopleId && !isNaN(peopleId));
+        if(isEdit) this.findByCode(parseInt(peopleId));
+    },
+    componentWillUnmount: function() {
+        PeopleDao.off(table);
+    },
     back: function() {
         event.preventDefault();
         this.transitionTo('/people/view');
     },
+    mock: function(){
+        PeopleDao.saveOrUpdate(table, {
+            code: '1',
+            name: 'Jael',
+            observation: 'Jael Obs',
+            genere: 0,
+            active: true,
+            key: 0
+        });
+
+        PeopleDao.saveOrUpdate(table, {
+            code: '1',
+            name: 'Jael edit',
+            observation: 'Jael Obs edit',
+            genere: 0,
+            active: true,
+            key: 0,
+            update: true
+        });
+
+        PeopleDao.saveOrUpdate(table, {
+            code: '2',
+            name: 'Lima',
+            observation: 'Lima Obs',
+            genere: 1,
+            active: true,
+            key: 0
+        });
+    },
     save: function() {
-        event.preventDefault();
         PeopleDao.saveOrUpdate(table, this.state);
+        this.transitionTo('/people/view');
     },
     findByCode: function(code){
         var self = this;
-        PeopleDao.findByCode(table, code, function(object){
-            var existObject = (object && object.val());
-            console.log(object.val())
-            if(existObject) self.setState(object.val());
+        PeopleDao.findByCode(table, code, 'child_added', function(objectRef, objectValue){
+            var objectDB = objectValue.val();
+            var existObject = (objectValue && objectValue.val());
+
+            if(existObject && objectDB){
+                objectDB['update'] = true;
+                self.setState(objectDB);
+            }
         });
     },
-    getInitialState: function() {
-        return {
-            code: 1,
-            name: 'Jose Arthur',
-            observation: 'Teste',
-            genere: 1,
-            active: true
-        };
-    },
-    componentDidMount: function() {
-        var peopleId = this.props.params.peopleId ? parseInt(this.props.params.peopleId) : 0;
-        var isEdit = (peopleId > 0);
-        if(isEdit) this.findByCode(peopleId);
+    del: function(event) {
+        event.preventDefault();
+        var self = this;
+        var peopleCode = self.state.code;
+        var delConfirmed = confirm('Remover selecionados?');
+        if(!delConfirmed) return;
+
+        PeopleDao.delete(table, peopleCode, function(error){
+            if(error) alert('Ocorreu um erro ao excluir: ' + error);
+            else self.transitionTo('/people/view');
+        });
     },
     render: function() {
         var self = this;
-        var peopleId = this.props.params.peopleId;
-
         return(
             React.createElement("div", {className: "editor"}, 
                 React.createElement("div", {className: "main full-width"}, 
                     React.createElement("h2", null, "Pessoa"), 
                     React.createElement("hr", null), 
-                    React.createElement(TextField, {valueLink: this.linkState('code'), hintText: "Código", floatingLabelText: "Código", className: "full-width", disabled: (self.state.key)}), React.createElement("br", null), 
+                    React.createElement(TextField, {valueLink: this.linkState('code'), hintText: "Código", floatingLabelText: "Código", className: "full-width", disabled: self.state.update}), React.createElement("br", null), 
                     React.createElement(TextField, {valueLink: this.linkState('name'), hintText: "Nome", floatingLabelText: "Nome", className: "full-width"}), React.createElement("br", null), 
                     React.createElement(TextField, {valueLink: this.linkState('observation'), hintText: "Observação", floatingLabelText: "Observação", multiLine: true, className: "full-width"}), React.createElement("br", null), 
                     React.createElement(SelectField, {valueLink: this.linkState('genere'), hintText: "Sexo", floatingLabelText: "Sexo", menuItems: [
@@ -79,7 +128,7 @@ module.exports = React.createClass({displayName: "exports",
                         )
                     ), 
                     React.createElement("li", null, 
-                        React.createElement(IconButton, null, 
+                        React.createElement(IconButton, {onClick: self.del}, 
                             React.createElement(Icon, {name: "trash-o"})
                         )
                     ), 

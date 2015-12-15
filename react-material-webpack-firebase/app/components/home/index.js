@@ -18,33 +18,24 @@ var tilesData = [
     {
         key : 1,
         title : 'Cadastros',
-        link : [' Pessoas', ' Clientes', 'Imóveis', ' Tipos'],
-        ref : ['people/view', '', '', ''],
+        link : [' Pessoas'],
+        ref : ['people/view'],
         featured : false,
         icon : 'cogs',
         color: 'FF595C'
     },{
         key : 2,
-        title : 'Manutenção',
-        link : [' Visitas', ' Clientes', ' Imóveis'],
+        title : 'Sobre',
+        link : [' about'],
         ref : ['', '', ''],
         featured : true,
         icon : 'home',
         color: 'E8D993'
-    },{
-        key : 3,
-        title : 'Outros',
-        link : ['horewer'],
-        ref : [''],
-        featured : false,
-        icon : 'registered',
-        color: '4CFF55'
     }
 ]
 
 module.exports = React.createClass({displayName: "exports",
     mixins: [Router.Navigation, Router.State],
-
     render: function() {
         return(
             React.createElement(GridList, {className: "grid"}, 

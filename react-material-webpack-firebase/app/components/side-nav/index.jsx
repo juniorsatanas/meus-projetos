@@ -14,8 +14,7 @@ module.exports = React.createClass({
     render: function() {
         var menuItems = [
             {route: '/', text: 'Home'},
-            {route: '/about', text: 'About'},
-            {route: '/register', text: 'Register'}
+            {route: '/about', text: 'About'}
         ];
 
         var header = <div className='header'>my-house</div>;
