@@ -1,50 +1,39 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<widget id="com.ionicframework.ionicsample482879" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>ionic-sample</name>
-  <description>
-        An Ionic Framework and Cordova project.
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="io.cordova.hellocordova" version="2.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>HelloCordova</name>
+    <description>
+        A sample Apache Cordova application that responds to the deviceready event.
     </description>
-  <author email="you@example.com" href="http://example.com.com/">
-      Your Name Here
+    <author email="callback-dev@incubator.apache.org" href="http://cordova.io">
+        Apache Cordova Team
     </author>
-  <content src="index.html"/>
-  <access origin="*"/>
-  <preference name="webviewbounce" value="false"/>
-  <preference name="UIWebViewBounce" value="false"/>
-  <preference name="DisallowOverscroll" value="true"/>
-  <preference name="android-minSdkVersion" value="16"/>
-  <preference name="BackupWebStorage" value="none"/>
-  <preference name="SplashScreen" value="screen"/>
-  <preference name="SplashScreenDelay" value="3000"/>
-  <feature name="StatusBar">
-    <param name="ios-package" value="CDVStatusBar" onload="true"/>
-  </feature>
-  <platform name="ios">
-    <icon src="resources/ios/icon/icon.png" width="57" height="57"/>
-    <icon src="resources/ios/icon/icon@2x.png" width="114" height="114"/>
-    <icon src="resources/ios/icon/icon-40.png" width="40" height="40"/>
-    <icon src="resources/ios/icon/icon-40@2x.png" width="80" height="80"/>
-    <icon src="resources/ios/icon/icon-50.png" width="50" height="50"/>
-    <icon src="resources/ios/icon/icon-50@2x.png" width="100" height="100"/>
-    <icon src="resources/ios/icon/icon-60.png" width="60" height="60"/>
-    <icon src="resources/ios/icon/icon-60@2x.png" width="120" height="120"/>
-    <icon src="resources/ios/icon/icon-60@3x.png" width="180" height="180"/>
-    <icon src="resources/ios/icon/icon-72.png" width="72" height="72"/>
-    <icon src="resources/ios/icon/icon-72@2x.png" width="144" height="144"/>
-    <icon src="resources/ios/icon/icon-76.png" width="76" height="76"/>
-    <icon src="resources/ios/icon/icon-76@2x.png" width="152" height="152"/>
-    <icon src="resources/ios/icon/icon-small.png" width="29" height="29"/>
-    <icon src="resources/ios/icon/icon-small@2x.png" width="58" height="58"/>
-    <icon src="resources/ios/icon/icon-small@3x.png" width="87" height="87"/>
-    <splash src="resources/ios/splash/Default-568h@2x~iphone.png" height="1136" width="640"/>
-    <splash src="resources/ios/splash/Default-667h.png" height="1334" width="750"/>
-    <splash src="resources/ios/splash/Default-736h.png" height="2208" width="1242"/>
-    <splash src="resources/ios/splash/Default-Landscape-736h.png" height="1242" width="2208"/>
-    <splash src="resources/ios/splash/Default-Landscape@2x~ipad.png" height="1536" width="2048"/>
-    <splash src="resources/ios/splash/Default-Landscape~ipad.png" height="768" width="1024"/>
-    <splash src="resources/ios/splash/Default-Portrait@2x~ipad.png" height="2048" width="1536"/>
-    <splash src="resources/ios/splash/Default-Portrait~ipad.png" height="1024" width="768"/>
-    <splash src="resources/ios/splash/Default@2x~iphone.png" height="960" width="640"/>
-    <splash src="resources/ios/splash/Default~iphone.png" height="480" width="320"/>
-  </platform>
+    <icon height="512" src="res/icon/cordova_512.png" width="512" />
+    <icon cdv:platform="android" height="96" src="res/icon/cordova_android_96.png" width="96" />
+    <icon cdv:platform="blackberry" height="80" src="res/icon/cordova_bb_80.png" width="80" />
+    <icon cdv:platform="ios" height="144" src="res/icon/cordova_ios_144.png" width="144" />
+    <cdv:splash cdv:platform="android" height="480" src="res/screen/android_hdpi_landscape.png" width="800" />
+    <cdv:splash cdv:platform="android" height="800" src="res/screen/android_hdpi_portrait.png" width="480" />
+    <cdv:splash cdv:platform="android" height="200" src="res/screen/android_ldpi_landscape.png" width="320" />
+    <cdv:splash cdv:platform="android" height="320" src="res/screen/android_ldpi_portrait.png" width="200" />
+    <cdv:splash cdv:platform="android" height="320" src="res/screen/android_mdpi_landscape.png" width="480" />
+    <cdv:splash cdv:platform="android" height="480" src="res/screen/android_mdpi_portrait.png" width="320" />
+    <cdv:splash cdv:platform="android" height="720" src="res/screen/android_xhdpi_landscape.png" width="1280" />
+    <cdv:splash cdv:platform="android" height="1280" src="res/screen/android_xhdpi_portrait.png" width="720" />
+    <cdv:splash cdv:platform="blackberry" height="300" src="res/screen/blackberry_transparent_300.png" width="300" />
+    <cdv:splash cdv:platform="blackberry" height="200" src="res/screen/blackberry_transparent_400.png" width="200" />
+    <cdv:splash cdv:platform="ios" height="748" src="res/screen/ipad_landscape.png" width="1024" />
+    <cdv:splash cdv:platform="ios" height="1004" src="res/screen/ipad_portrait.png" width="768" />
+    <cdv:splash cdv:platform="ios" height="1496" src="res/screen/ipad_retina_landscape.png" width="2048" />
+    <cdv:splash cdv:platform="ios" height="2008" src="res/screen/ipad_retina_portrait.png" width="1536" />
+    <cdv:splash cdv:platform="ios" height="320" src="res/screen/iphone_landscape.png" width="480" />
+    <cdv:splash cdv:platform="ios" height="480" src="res/screen/iphone_portrait.png" width="320" />
+    <cdv:splash cdv:platform="ios" height="640" src="res/screen/iphone_retina_landscape.png" width="960" />
+    <cdv:splash cdv:platform="ios" height="960" src="res/screen/iphone_retina_portrait.png" width="640" />
+    <cdv:splash cdv:platform="winphone" height="800" src="res/screen/windows_phone_portrait.jpg" width="480" />
+    <feature name="http://api.phonegap.com/1.0/device" />
+    <preference name="phonegap-version" value="1.9.0" />
+    <preference name="orientation" value="default" />
+    <preference name="target-device" value="universal" />
+    <preference name="fullscreen" value="false" />
+    <access origin="*" />
 </widget>

@@ -1,0 +1,26 @@
+<ion-pane ng-controller="HomeController as vm" ng-init="vm.init();">
+    <ion-header-bar class="bar-positive">
+        <div class="buttons">
+            <a class="button button-icon ion-ios-minus-outline" href="#" ng-click="data.showDelete = !data.showDelete;"></a>
+        </div>
+        <h1 class="title">Agenda</h1>
+        <div class="buttons">
+            <button class="button button-icon ion-android-search" ng-click="vm.showFilterBar()"></button>
+        </div>
+        <div class="buttons">
+            <a class="button button-icon ion-ios-plus-outline" href="#/item"></a>
+        </div>
+    </ion-header-bar>
+    <ion-content class="has-header">
+        <ion-list option-buttons="itemButtons" can-swipe="true" show-delete="data.showDelete">
+            <ion-item ng-repeat="item in vm.items" item="item" href="#/item/{{$index}}" class="item-remove-animate">
+                <div class="item-icon-right">
+                    <ion-delete-button class="ion-minus-circled" ng-click="vm.onItemDelete(item)"/></ion-delete-button>
+                    <div><b>{{item.name}}</b></div>
+                    <div>{{item.date | date:'dd/MM/yyyy'}}</div>
+                    <i class='icon ion-chevron-right icon-accessory'></i>
+                </div>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+</ion-pane>
