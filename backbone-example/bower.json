@@ -1,0 +1,25 @@
+{
+    "name": "backbone-sample",
+    "description": "",
+    "main": "index.js",
+    "authors": [
+        "Emir Marques <emirdeliz@gmail.com>"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/emirdeliz/meus-projetos",
+    "moduleType": [],
+    "ignore": [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies": {
+        "sinon": "^1.17.3",
+        "zepto": "^1.1.6",
+        "underscore": "^1.8.3",
+        "backbone": "^1.2.3",
+        "fakerest": "^1.1.4"
+    }
+}

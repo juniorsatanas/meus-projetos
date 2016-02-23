@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en" data-framework="backbonejs">
+<head>
+	<meta charset="utf-8">
+	<title>Backbone.js + Webpack • TodoMVC</title>
+	<!-- inject:css -->
+	<!-- endinject -->
+</head>
+<body>
+	<script type="text/template" id="formulario-template">
+		<label>Search</label>
+		<input type="text" id="txtTermo" />
+		<input type="button" id="btnBuscar" value="Buscar" />
+	</script>
+
+	<h3>Register</h3>
+	<div id="app-container">
+		<label>New</label>
+		<input type="text" id="txt-item" />
+		<input type="button" id="btn-salvar" value="Salvar" />
+		<ul id="lista-container"></ul>
+	</div>
+	<hr>
+
+	<h3>Template</h3>
+	<div id="formulario-container"></div>
+	<hr>
+
+	<h3>Model</h3>
+	<ul id="lista-container-song"></ul>
+	<hr>
+
+	<h3>Model Event</h3>
+	<div id="app-container-model-event">
+		<label>Nome: <input type="text" id="txtNome" /></label>
+		<label>Idade: <input type="text" id="txtAge" /></label>
+	</div>
+	<hr>
+
+	<h3>Collection</h3>
+	<div id="app-container-collection"></div>
+	<script type="text/template" id="details">
+		<ul>
+			<%_.each(cars, function(car) {%><li><%=car.name%></li><%});%>
+		</ul>
+	</script>
+	<hr>
+
+	<h3>Collection Eventos</h3>
+	<div id="app-container-collection-eventos">
+		<button type="button" id="add-friend">Add Friend</button>
+		<ul id="friends-list"></ul>
+	</div>
+	<hr>
+</body>
+<!-- bower:js -->
+<script src="../bower_components/zepto/zepto.js"></script>
+<script src="../bower_components/underscore/underscore.js"></script>
+<script src="../bower_components/backbone/backbone.js"></script>
+<script src="../bower_components/fakerest/dist/FakeRest.min.js"></script>
+<!-- endbower -->
+<!-- inject:js -->
+<script src="/app/js/collections-eventos.js"></script>
+<script src="/app/js/collections.js"></script>
+<script src="/app/js/model-event.js"></script>
+<script src="/app/js/model.js"></script>
+<script src="/app/js/register.js"></script>
+<script src="/app/js/sincronizando-models.js"></script>
+<script src="/app/js/template.js"></script>
+<!-- endinject -->
+</html>
