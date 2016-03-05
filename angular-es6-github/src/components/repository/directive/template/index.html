@@ -1,0 +1,11 @@
+<div class="repository" ng-init="init()">
+    <img ng-src={{item.owner.avatar_url}} width="100" height="100">
+    <span class="title">{{item.full_name}}</span> /
+    <span class="description">{{item.description}}</span>
+    <span class="icon-click open-issue" title="Expandir chamados" ng-click="showComment = !showComment">
+        <i class="fa fa-expand"></i>
+    </span>
+    <div ng-show="showComment">
+        <issue repository="item"/>
+    </div>
+</div>

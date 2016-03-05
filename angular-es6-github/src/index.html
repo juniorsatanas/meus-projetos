@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="GithubApp">
+<head>
+	<meta charset="utf-8">
+	<title>Github + angular</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body ng-controller="GithubController as GitCtrl" ng-init="GitCtrl.find();">
+	<nav class="header-page">
+		<span class="title">Github + angular</span>
+		<input class="input-search" type="text" ng-model="filter" placeholder="Buscar repositório..." ng-enter="GitCtrl.find();"/>
+		<span class="icon-click" ng-click="GitCtrl.find();" title="Pesquisar...">
+			<i class="fa fa-search"></i>
+			<div class="loading" ng-show="loading"></div>
+		</span>
+	</nav>
+	<div class="content">
+		<section ng-repeat="(key, value) in repository">
+			<Repository item="value" />
+		</section>
+	</div>
+	<hr>
+	<footer class="footer">Desenvolvido por - Emir Marques de Liz 2016</footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,7 @@
+<div class="issue">
+    <input type="text" class="input-search-issue" ng-model="searchText" placeholder="Filtrar tópico"/>
+    <div ng-repeat="(key, value) in issues | filter:{title: searchText}">
+        <span class="title">{{value.title}}</span>
+        <comment issue="value" />
+    </div>
+</div>
